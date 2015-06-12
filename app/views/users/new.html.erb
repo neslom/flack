@@ -1,7 +1,7 @@
 <div class="signup">
   <div class="container col-md-2 col-md-offset-5">
     <div class="input-group input-group-lg">
-      <%= bootstrap_form_for(@user, url: signup_path) do |f| %>
+      <%= bootstrap_form_for(User.new, url: signup_path) do |f| %>
         <%= f.text_field :name %>
         <%= f.email_field :email %>
         <%= f.password_field :password %>

@@ -11,6 +11,8 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome, #{user.name}!"
       redirect_to root_path
     else
+      flash[:error] = user.errors.full_messages.uniq.to_sentence
+      #redirect_to signup_path
       render :new
     end
   end

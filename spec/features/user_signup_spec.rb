@@ -27,4 +27,22 @@ RSpec.describe "User sign up" do
 
     expect(page).to have_link("Logout")
   end
+
+  scenario "User cannot signup without confirming password" do
+    visit root_path
+
+    click_link_or_button("Sign up")
+
+    expect(current_path).to eq(signup_path)
+
+    fill_in("user[name]", with: "Markus")
+    fill_in("user[email]", with: "molsen13@gmail.com")
+    fill_in("user[password]", with: "password")
+    fill_in("user[password_confirmation]", with: "word")
+    click_link_or_button("Sign In")
+
+    within(".flash") do
+      expect(page).to have_content("Password confirmation doesn't match Password")
+    end
+  end
 end
