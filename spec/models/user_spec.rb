@@ -5,6 +5,12 @@ RSpec.describe User do
                            email: "molsen13@gmail.com",
                            password: "password") }
   context "is invalid" do
+    it "without name" do
+      expect(User.new(name: "",
+                           email: "molsen13@gmail.com",
+                           password: "password")).to be_invalid
+    end
+
     it "with taken email" do
       expect do
         User.create!(name: "bob",
