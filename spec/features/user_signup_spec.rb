@@ -5,6 +5,8 @@ RSpec.describe "User sign up" do
     visit root_path
 
     click_link_or_button("Sign up")
+
+    expect(current_path).to eq(signup_path)
     fill_in("session[username]", with: "Markus")
     fill_in("session[email]", with: "molsen13@gmail.com")
     fill_in("session[password]", with: "password")
