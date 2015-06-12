@@ -15,8 +15,12 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav"></ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Sign up", signup_path %><li>
-        <li><a href="#">Sign in</a></li>
+        <% if !session[:user_id] %>
+          <li><%= link_to "Sign up", signup_path %><li>
+          <li><a href="#">Sign in</a></li>
+      <% else %>
+        <li><%= link_to "Logout" %></li>
+      <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

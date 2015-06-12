@@ -24,5 +24,7 @@ RSpec.describe "User sign up" do
     ["Sign up", "Sign in"].each do |link|
       expect(page).to_not have_link(link)
     end
+
+    expect(page).to have_link("Logout")
   end
 end
