@@ -10,12 +10,10 @@
 
     <%= render partial: "layouts/navbar" %>
 
-    <div class="container-fluid">
-      <div class="messsages">
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, id: "flash_#{name}" %>
-        <% end %>
-      </div>
+
+
+    <div class="flash">
+      <%= flash_messages %>
     </div>
 
     <%= yield %>
