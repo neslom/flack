@@ -1,6 +1,7 @@
 require "rails_helper"
+require "./spec/support/user_login.rb"
 
-RSpec.describe "User login" do
+RSpec.describe "User login and logout" do
   let!(:user) { User.create(name: "Markus",
                            email: "molsen13@gmail.com",
                            password: "password") }
@@ -23,5 +24,10 @@ RSpec.describe "User login" do
     within(".flash") do
       expect(page).to have_content("Markus")
     end
+  end
+
+  scenario "logged in User can logout" do
+    login_as(user)
+    expect(current_path).to eq(user_path(user))
   end
 end
