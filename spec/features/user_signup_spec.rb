@@ -15,7 +15,7 @@ RSpec.describe "User sign up" do
 
     expect do
       click_link_or_button("Sign In")
-    end.to change{ User.count }.from(0).to(1)
+    end.to change { User.count }.from(0).to(1)
 
     within(".flash") do
       expect(page).to have_content("Welcome, Markus!")

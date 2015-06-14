@@ -28,6 +28,17 @@ RSpec.describe "User login and logout" do
 
   scenario "logged in User can logout" do
     login_as(user)
-    expect(current_path).to eq(user_path(user))
+
+    ["Sign in", "Sign up"].each do |content|
+      expect(page).to_not have_content(content)
+    end
+
+    click_link_or_button("Logout")
+
+    within(".flash") do
+      expect(page).to have_content("Goodbye, #{user.name}!")
+    end
+
+    expect(current_path).to eq(root_path)
   end
 end
