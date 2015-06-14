@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if !session[:user_id] %>
           <li><%= link_to "Sign up", signup_path %><li>
-          <li><a href="#">Sign in</a></li>
+          <li><%= link_to "Sign in", login_path %></li>
       <% else %>
         <li><%= link_to "Logout" %></li>
       <% end %>

@@ -12,9 +12,11 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = user.errors.full_messages.uniq.to_sentence
-      #redirect_to signup_path
       render :new
     end
+  end
+
+  def show
   end
 
   private
