@@ -8,7 +8,7 @@ RSpec.describe "Initial chat room" do
                 password: "password")
   end
 
-  scenario "user can post messages in chat room" do
+  scenario "user can post messages in chat room", js: true do
     login_as(user)
 
     fill_in("message[body]", with: "message stuff")
