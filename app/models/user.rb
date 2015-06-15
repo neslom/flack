@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   has_secure_password
 
+  has_many :messages
+
   def to_param
     self.name.gsub(" ", "_")
   end

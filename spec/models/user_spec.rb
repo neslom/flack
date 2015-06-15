@@ -41,6 +41,7 @@ RSpec.describe User do
       end
 
       expect(user.messages.length).to eq(3)
+      expect(user.messages.first.body).to eq("i'm the body")
     end
   end
 end
