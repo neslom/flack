@@ -16,5 +16,11 @@ RSpec.describe Message do
         Message.create!(body: "", channel: "main")
       end.to raise_error(ActiveRecord::RecordInvalid, /Body can't be blank/)
     end
+
+    it "does not have a channel" do
+      expect do
+        Message.create!(body: "message body", channel: "")
+      end.to raise_error(ActiveRecord::RecordInvalid, /Channel can't be blank/)
+    end
   end
 end
