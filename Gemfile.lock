@@ -176,6 +176,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    teaspoon (1.0.2)
+      railties (>= 3.2.5, < 5)
+    teaspoon-mocha (2.2.4)
+      teaspoon (>= 1.0.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -225,6 +229,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  teaspoon-mocha
   therubyracer
   turbolinks
   twitter-bootstrap-rails

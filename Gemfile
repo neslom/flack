@@ -21,6 +21,7 @@ gem 'bootstrap_form'
 group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0'
+  gem 'teaspoon-mocha'
 end
 
 group :test do
