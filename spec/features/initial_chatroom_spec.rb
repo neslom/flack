@@ -1,4 +1,5 @@
 require "rails_helper"
+require "./spec/support/user_login.rb"
 
 RSpec.describe "Initial chat room" do
   let!(:user) do
