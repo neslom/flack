@@ -11,7 +11,9 @@ RSpec.describe "Initial chat room" do
     login_as(user)
 
     fill_in("message[body]", with: "message stuff")
-    within(".chat") do
+    click_link_or_button("Chat")
+
+    within(".messages") do
       expect(page).to have_content("message stuff")
     end
   end
