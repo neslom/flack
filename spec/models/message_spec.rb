@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Message do
-  context "is valid if" do
+  context "valid" do
     it "has a body and a channel" do
       message = Message.create(body: "message body", channel: "main")
 
@@ -10,7 +10,7 @@ RSpec.describe Message do
     end
   end
 
-  context "is invalid if" do
+  context "invalid" do
     it "does not have a body" do
       expect do
         Message.create!(body: "", channel: "main")
