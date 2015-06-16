@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Welcome, #{user.name}"
-      redirect_to user_path(user)
+      redirect_to main_chat_path
     else
       flash[:danger] = "Invalid login attempt"
       redirect_to login_path

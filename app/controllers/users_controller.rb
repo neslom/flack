@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Welcome, #{user.name}!"
-      redirect_to user_path(user)
+      redirect_to main_chat_path
     else
       flash[:error] = user.errors.full_messages.uniq.to_sentence
       render :new

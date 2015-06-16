@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
 
-  get ":name", to: "users#show", as: :user
+  get "/main", to: "main_chat#index", as: :main_chat
 
   delete "/logout", to: "sessions#destroy"
 
