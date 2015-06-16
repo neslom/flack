@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   post "/messages", to: "messages#create"
+
+  mount MagicLamp::Genie, at: "/magic_lamp" if defined?(MagicLamp)
 end

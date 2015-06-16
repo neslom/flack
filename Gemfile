@@ -22,6 +22,7 @@ group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'teaspoon-mocha'
+  gem 'magic_lamp'
 end
 
 group :test do
