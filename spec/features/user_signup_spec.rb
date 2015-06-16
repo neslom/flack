@@ -26,6 +26,7 @@ RSpec.describe "User sign up" do
     end
 
     expect(page).to have_link("Logout")
+    expect(current_path).to eq(user_path(User.first))
   end
 
   scenario "User cannot signup without confirming password" do
