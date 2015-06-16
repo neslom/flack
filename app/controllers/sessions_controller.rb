@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
   def destroy
     user = User.find_by(id: session[:user_id])
     session[:user_id] = nil
-    flash[:notice] = "Goodbye, #{user.name}!"
+    flash[:notice] = "Goodbye, #{user.name}!" if user
     redirect_to root_path
   end
 end
