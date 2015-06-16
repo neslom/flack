@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   get ":name", to: "users#show", as: :user
 
   delete "/logout", to: "sessions#destroy"
+
+  post "/messages", to: "messages#create"
+
+  mount MagicLamp::Genie, at: "/magic_lamp" if defined?(MagicLamp)
 end

@@ -5,3 +5,14 @@
 .login {
   margin-top: 5em;
 }
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.messages {
+  background: #D4D3CA;
+  height: 25em;
+  margin-bottom: 1em;
+}
+

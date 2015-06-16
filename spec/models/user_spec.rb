@@ -33,4 +33,15 @@ RSpec.describe User do
       end.to raise_error(ActiveRecord::RecordInvalid, /Name has already been taken/)
     end
   end
+
+  context "is valid" do
+    it "returns a collection of messages" do
+      3.times do
+        user.messages.create(body: "i'm the body", channel: "main")
+      end
+
+      expect(user.messages.length).to eq(3)
+      expect(user.messages.first.body).to eq("i'm the body")
+    end
+  end
 end

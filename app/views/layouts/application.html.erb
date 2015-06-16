@@ -9,8 +9,11 @@
   <body>
 
     <%= render partial: "layouts/navbar" %>
+    <% if current_user %>
+      <%= render partial: "layouts/sidebar" %>
+    <% end %>
 
-    <div class="flash">
+    <div class="flash pull-right">
       <%= flash_messages %>
     </div>
 

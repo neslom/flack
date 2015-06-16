@@ -9,7 +9,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem "bcrypt", "~> 3.1.7"
+gem 'bcrypt', '~> 3.1.7'
+gem 'redis'
+gem 'responders'
 
 gem 'therubyracer'
 gem 'less-rails'
@@ -19,11 +21,15 @@ gem 'bootstrap_form'
 group :development, :test do
   gem 'pry'
   gem 'web-console', '~> 2.0'
+  gem 'teaspoon-mocha'
+  gem 'magic_lamp'
 end
 
 group :test do
   gem 'capybara'
   gem 'rspec-rails'
   gem 'launchy'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
