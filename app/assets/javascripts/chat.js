@@ -10,10 +10,7 @@ $(document).ready(function () {
       method: 'POST',
       url: '/messages',
       dataType: 'json',
-      data: { message: { body: messageBody, channel: channel } },
-      success: function (data) {
-        appendMessageToRoom($messages, data);
-      }
+      data: { message: { body: messageBody, channel: channel } }
     });
   });
 });

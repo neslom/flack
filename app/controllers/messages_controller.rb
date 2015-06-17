@@ -4,8 +4,10 @@ class MessagesController < ApplicationController
   def create
     message = Message.create!(body: params["message"]["body"], channel: params["message"]["channel"], user_id: current_user.id)
 
-    respond_with({ message: message, user: current_user.name }, status: 200, location: "")
+    message_response = { message: message, user: current_user.name }
 
-    $redis.publish("#{message.channel}", message.to_json)
+    respond_with(message_response, status: 200, location: "")
+
+    $redis.publish("#{message.channel}", message_response.to_json)
   end
 end
