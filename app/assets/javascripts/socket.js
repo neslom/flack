@@ -7,6 +7,6 @@ $(document).ready(function () {
 
   channel.on('message', function (message) {
     console.log('path: ' + path.slice(1));
-    appendMessageToRoom ($('.messages'), JSON.parse(message));
+    appendMessageToRoom($('.messages'), JSON.parse(message));
   });
 });

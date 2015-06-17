@@ -46,9 +46,9 @@ RSpec.describe Message do
   describe "#custom_json(user)" do
     it "returns custom json with the original message as well as the user" do
       user = User.create(name: "markus",
-                           email: "molsen13@gmail.com",
-                           password: "password"
-                          )
+                         email: "molsen13@gmail.com",
+                         password: "password"
+                        )
       message = user.messages.create(body: "message body",
                                      channel: "main"
                                     )

@@ -23,20 +23,20 @@ RSpec.describe "Initial chat room" do
     messages = []
     5.times do |n|
       message = Message.create(body: "message number #{n}",
-                     channel: "main",
-                     user_id: user.id
-                    )
+                               channel: "main",
+                               user_id: user.id
+                              )
       messages.push(message)
     end
 
     login_as(user)
 
     messages.each do |message|
-      within('.messages') { expect(page).to have_content(message.body) }
+      within(".messages") { expect(page).to have_content(message.body) }
     end
   end
 
-  xscenario "User One can see a message posted by User two", js: true do
+  scenario "User One can see a message posted by User two", js: true do
     user2 = User.create(name: "Richard",
                         email: "richard@example.com",
                         password: "password"
