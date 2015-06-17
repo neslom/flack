@@ -23,4 +23,23 @@ RSpec.describe Message do
       end.to raise_error(ActiveRecord::RecordInvalid, /Channel can't be blank/)
     end
   end
+
+  describe ".last_five_main_chat_messages" do
+    it "returns the last five chat messages in custom json format" do
+      user = User.create(name: "markus",
+                         email: "molsen13@gmail.com",
+                         password: "password"
+                        )
+
+      7.times do |n|
+        user.messages.create(body: "message number #{n}",
+                             channel: "main"
+                            )
+      end
+
+      expect(Message.last_five_main_chat_messages.count).to eq(5)
+      expect(Message.last_five_main_chat_messages).to_not include(Message.first)
+      expect(Message.last_five_main_chat_messages).to_not include(Message.second)
+    end
+  end
 end

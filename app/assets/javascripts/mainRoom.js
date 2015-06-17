@@ -3,8 +3,7 @@ $(document).ready(function () {
 
   $.getJSON('/main_chat.json', function (data) {
     data.forEach(function (message) {
-      console.log(message);
-      appendMessageToRoom($mainChatBox, message);
+      appendMessageToRoom($mainChatBox, JSON.parse(message));
     });
   });
 });

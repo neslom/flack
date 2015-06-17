@@ -6,8 +6,8 @@ class MessagesController < ApplicationController
 
     message_response = { message: message, user: current_user.name }
 
-    respond_with(message_response, status: 200, location: "")
+    respond_with(message.custom_json(current_user), status: 200, location: "")
 
-    $redis.publish("#{message.channel}", message_response.to_json)
+    $redis.publish("#{message.channel}", message.custom_json(current_user))
   end
 end
