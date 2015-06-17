@@ -19,7 +19,7 @@ RSpec.describe "User login and logout" do
       click_link_or_button("Sign In")
     end
 
-    expect(current_path).to eq(user_path(user))
+    expect(current_path).to eq(main_chat_path)
 
     within(".flash") do
       expect(page).to have_content("Markus")
