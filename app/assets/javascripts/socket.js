@@ -3,7 +3,7 @@ $(document).ready(function () {
   var windowLocation = window.location;
 
   if (windowLocation.toString().indexOf('45.55.184.116') !== -1) {
-    host = 'http://45.55.184.116/';
+    host = 'http://45.55.184.116';
   } else {
     host = 'http://localhost:3000';
   };
