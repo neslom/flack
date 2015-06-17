@@ -20,6 +20,7 @@ gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form'
 
 group :development, :test do
+  gem 'better_errors'
   gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'teaspoon-mocha'
