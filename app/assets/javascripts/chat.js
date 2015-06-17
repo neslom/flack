@@ -10,7 +10,8 @@ $(document).ready(function () {
       method: 'POST',
       url: '/messages',
       dataType: 'json',
-      data: { message: { body: messageBody, channel: channel } }
+      data: { message: { body: messageBody, channel: channel } },
+      success: clearChatInputField($message)
     });
   });
 });
@@ -27,4 +28,8 @@ function formatDate (date) {
   };
 
   return dateObj.toLocaleTimeString('en-US', options);
+};
+
+function clearChatInputField (input) {
+  input.val('');
 };
