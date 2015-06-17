@@ -15,5 +15,7 @@ Rails.application.routes.draw do
 
   post "/messages", to: "messages#create"
 
+  get "/main_chat", to: "main_chat#index"
+
   mount MagicLamp::Genie, at: "/magic_lamp" if defined?(MagicLamp)
 end
