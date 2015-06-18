@@ -17,5 +17,9 @@ Rails.application.routes.draw do
 
   get "/main_chat", to: "main_chat#index"
 
+  scope "/genres" do
+    get "/rock", to: "rock#index"
+  end
+
   mount MagicLamp::Genie, at: "/magic_lamp" if defined?(MagicLamp)
 end

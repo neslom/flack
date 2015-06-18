@@ -24,7 +24,7 @@ RSpec.describe Message do
     end
   end
 
-  describe ".last_five_main_chat_messages" do
+  describe ".last_five_chat_messages" do
     it "returns the last five chat messages in custom json format" do
       user = User.create(name: "markus",
                          email: "molsen13@gmail.com",
@@ -37,9 +37,19 @@ RSpec.describe Message do
                             )
       end
 
-      expect(Message.last_five_main_chat_messages.count).to eq(5)
-      expect(Message.last_five_main_chat_messages).to_not include(Message.first)
-      expect(Message.last_five_main_chat_messages).to_not include(Message.second)
+      expect(Message.last_five_chat_messages("main").count).to eq(5)
+      expect(Message.last_five_chat_messages("main")).to_not include(Message.first)
+      expect(Message.last_five_chat_messages("main")).to_not include(Message.second)
+
+      7.times do |n|
+        user.messages.create(body: "message number #{n}",
+                             channel: "rock"
+                            )
+      end
+
+      expect(Message.last_five_chat_messages("rock").count).to eq(5)
+      expect(Message.last_five_chat_messages("rock")).to_not include(Message.first)
+      expect(Message.last_five_chat_messages("rock")).to_not include(Message.second)
     end
   end
 
