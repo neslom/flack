@@ -1,12 +1,12 @@
 defaults: &defaults
-  socket_url: http://localhost:4200                                                       │~
+  socket_url: http://localhost:4200
 
-development:                                                                              │~
-  <<: *defaults                                                                           │~
+development:
+  <<: *defaults
 
-test:                                                                                     │~
-  <<: *defaults                                                                           │~
+test:
+  <<: *defaults
 
-production:                                                                               │~
-  <<: *defaults                                                                           │~
+production:
+  <<: *defaults
   socket_url: "http://45.55.184.116:4200"
