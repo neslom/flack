@@ -4,8 +4,8 @@ class Message < ActiveRecord::Base
 
   belongs_to :user
 
-  def self.last_five_main_chat_messages
-    where(channel: "main").last(5).map { |message| message.custom_json(message.user) }
+  def self.last_five_chat_messages(channel)
+    where(channel: channel).last(5).map { |message| message.custom_json(message.user) }
   end
 
   def custom_json(user)
