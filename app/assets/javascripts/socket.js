@@ -5,7 +5,7 @@ $(document).ready(function () {
   if (windowLocation.toString().indexOf('45.55.184.116') !== -1) {
     host = 'http://45.55.184.116';
   } else {
-    host = 'http://localhost:3000';
+    host = 'http://localhost:4200';
   };
 
   var path = window.location.pathname;
