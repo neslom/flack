@@ -13,6 +13,7 @@ gem 'redis'
 gem 'responders'
 gem 'socket.io-rails'
 gem 'soundcloud'
+gem 'oauth2'
 
 gem 'therubyracer'
 gem 'less-rails'
