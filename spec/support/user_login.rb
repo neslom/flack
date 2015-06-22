@@ -1,8 +1,18 @@
-def login_as(user)
-  visit login_path
+require "oauth2"
 
-  fill_in "session[email]", with: user.email
-  fill_in "session[password]", with: user.password
+def login_with_soundcloud
+  client_id = ENV["SOUNDCLOUD_CLIENT_ID"]
+  client_secret = ENV["SOUNDCLOUD_CLIENT_SECRET"]
+  redirect_uri = $client.redirect_uri
+  site = "http://localhost:4000"
 
-  click_link_or_button "Sign In"
+  client = OAuth2::Client.new(client_id, client_secret, site: site)
+  access_token = client.secret
+
+  user = User.create(name: "markus",
+                     access_token: access_token)
+
+  current_user = allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+  return user
 end

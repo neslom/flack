@@ -2,14 +2,9 @@ require "rails_helper"
 require "./spec/support/user_login.rb"
 
 RSpec.describe "Multiple chat rooms" do
-  let!(:user) do User.create(name: "Markus",
-                             email: "molsen13@gmail.com",
-                             password: "password"
-                            )
-  end
-
   scenario "user visits chat other than main and does not see main's messages", js: true do
-    login_as(user)
+    login_with_soundcloud
+    visit main_chat_path
 
     fill_in("message[body]", with: "message stuff")
     click_link_or_button("Chat")

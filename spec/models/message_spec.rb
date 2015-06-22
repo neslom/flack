@@ -27,8 +27,7 @@ RSpec.describe Message do
   describe ".last_five_chat_messages" do
     it "returns the last five chat messages in custom json format" do
       user = User.create(name: "markus",
-                         email: "molsen13@gmail.com",
-                         password: "password"
+                         access_token: "asf8789asdf"
                         )
 
       7.times do |n|
@@ -56,8 +55,7 @@ RSpec.describe Message do
   describe "#custom_json(user)" do
     it "returns custom json with the original message as well as the user" do
       user = User.create(name: "markus",
-                         email: "molsen13@gmail.com",
-                         password: "password"
+                         access_token: "asf8789asdf"
                         )
       message = user.messages.create(body: "message body",
                                      channel: "main"
