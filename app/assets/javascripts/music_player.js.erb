@@ -1,0 +1,16 @@
+$(document).ready(function () {
+  //$.getJSON(url, function (tracks) {
+  //var raps = $(tracks).filter(function (track) {
+  //return track.genre === 'BH';
+  //})
+  //});
+  SC.initialize({
+    client_id: "<%= ENV["SOUNDCLOUD_CLIENT_ID"] %>"
+  });
+
+  var url = 'https://soundcloud.com/litanymusic/woman-ft-appleby';
+  SC.oEmbed(url, {auto_play: true, maxheight: '200px'}, function(oembed){
+    console.log("oEmbed response: ", oembed);
+    $('.musicPlayer').append(oembed.html);
+  });
+});

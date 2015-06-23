@@ -1,3 +1,9 @@
+body {
+  background-color: #9EAEBA;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
 .signup {
   margin-top: 5em;
 }
@@ -12,6 +18,17 @@
 
 .messages {
   background: #D4D3CA;
-  height: 25em;
+  height: 400px;
   margin-bottom: 1em;
+  position: relative;
+}
+
+.messages p {
+  padding-top: 1em;
+  padding-left: 1em;
+}
+
+.input-group {
+  position: absolute;
+  bottom: 0;
 }
