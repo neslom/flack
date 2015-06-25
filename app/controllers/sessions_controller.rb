@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :must_be_logged_in!
+
   def new
     redirect_to $client.authorize_url()
   end
