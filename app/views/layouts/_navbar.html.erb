@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if !current_user %>
           <%= link_to login_path do %>
-            <%= image_tag "http://connect.soundcloud.com/2/btn-connect-m.png", style: "margin-top: 10px" %>
+            <%= image_tag "http://connect.soundcloud.com/2/btn-connect-m.png", style: "margin-top: 12px" %>
       <% end %>
       <% else %>
         <li><%= link_to "Logout", logout_path, method: :delete %></li>
