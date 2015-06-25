@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   root "dashboard#index"
 
+  get "/login", to: "sessions#new"
+
+  get "/callback", to: "sessions#create"
+
   get "/signup", to: "users#new"
 
   post "/signup", to: "users#create"
-
-  get "/login", to: "sessions#new"
-
-  post "/login", to: "sessions#create"
 
   get "/main", to: "main_chat#index", as: :main_chat
 

@@ -1,0 +1,39 @@
+var clientId = "<%= ENV["SOUNDCLOUD_CLIENT_ID"] %>";
+var url = "https://api.soundcloud.com/tracks.json?client_id=" + clientId;
+
+SC.initialize({
+  client_id: clientId
+});
+
+var defaultUrl = 'https://soundcloud.com/litanymusic/woman-ft-appleby';
+
+function appendSongs (urlPermalink) {
+  if (urlPermalink === undefined) {
+    urlPermalink = defaultUrl;
+  }
+
+  SC.oEmbed(urlPermalink, {auto_play: true, maxheight: '200px'}, function(oembed){
+    $('.musicPlayer').append(oembed.html);
+  });
+};
+
+var host;
+var windowLocation = window.location;
+
+if (windowLocation.toString().indexOf('45.55.184.116') !== -1) {
+  host = 'http://45.55.184.116:4200';
+} else {
+  host = 'http://localhost:4200';
+};
+
+var path = window.location.pathname;
+var channel = io(host + '/main-song');
+
+console.log(channel);
+
+channel.on('message', function (message) {
+  console.log(message);
+  appendSongs(JSON.parse(message));
+});
+
+appendSongs();
